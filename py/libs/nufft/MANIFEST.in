@@ -1,0 +1,14 @@
+include README.rst
+include setup.py
+include nufft/__init__.py
+include nufft/nufft.py
+include nufft/nufft.pyf
+include src/nufft/dfftpack.f
+include src/nufft/dirft1d.f
+include src/nufft/dirft2d.f
+include src/nufft/dirft3d.f
+include src/nufft/next235.f
+include src/nufft/nufft1df90.f
+include src/nufft/nufft2df90.f
+include src/nufft/nufft3df90.f
+include pyproject.toml

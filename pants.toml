@@ -1,0 +1,26 @@
+[GLOBAL]
+pants_version = "2.12.0rc1"
+
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.black",
+  "pants.backend.docker",
+  "pants.backend.project_info",
+]
+
+[source]
+root_patterns = [
+   "/py/libs/nufft",
+   "/py/libs/pybind",
+   "/py/apps/pyapp",
+]
+
+[python]
+interpreter_constraints = ["CPython==3.8.*"]
+
+[poetry]
+version = "poetry==1.1.13"
+interpreter_constraints = ["CPython>=3.8,<4"]
+
+[repl]
+shell = "ipython"

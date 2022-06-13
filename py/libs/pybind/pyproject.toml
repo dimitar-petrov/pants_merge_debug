@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "pybind"
+version = "0.2.1"
+description = "Fast computation extensions for osiris framework"
+authors = ["Dimitar Petrov <dpetrov@finxploit.com>"]
+license = "Proprietary"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Framework :: Setuptools Plugin",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Proprietary",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+]
+
+[[tool.poetry.source]]
+name = 'mypypi'
+url = 'https://pypi.finxploit.com/root/finxploit/+simple'
+default = true
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+
+nufft = { path = "../nufft"}
+cffi = { version = "*"}
+pytest = { version = "*" }
+numba = { version = "*" }
+
+[build-system]
+requires = ["setuptools", "wheel", "cffi", "poetry", "numpy"]
+build-backend = "setuptools.build_meta"
