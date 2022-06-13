@@ -1,7 +1,0 @@
-# Creating a python base with shared environment variables
-# FROM registry.finxploit.com/finx-py3.8.6-slim
-FROM busybox
-
-WORKDIR /app
-
-ENTRYPOINT ["/bin/bash"]
