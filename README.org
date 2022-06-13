@@ -1,0 +1,44 @@
+Building a docker image with the following repo results in file merge conflict
+
+*Command*
+#+begin_src shell
+./pants package py/apps/pyapp/docker:docker_src
+#+end_src
+
+*Output*
+#+begin_example
+12:40:26.87 [WARN] The target py/libs/pybind/setup.py:pybind0 imports `pytest`, but Pants cannot safely infer a dependency because more than one target owns this module, so it is ambiguous which to use: ['py/libs/nufft#pytest', 'py/libs/pybind#pytest'].
+
+Please explicitly include the dependency you want in the `dependencies` field of py/libs/pybind/setup.py:pybind0, or ignore the ones you do not want by prefixing with `!` or `!!` so that one or no targets are left.
+
+Alternatively, you can remove the ambiguity by deleting/changing some of the targets so that only 1 target owns this module. Refer to https://www.pantsbuild.org/v2.12/docs/troubleshooting#import-errors-and-missing-dependencies.
+12:40:27.09 [ERROR] 1 Exception encountered:
+
+  Exception: Can only merge Directories with no duplicates, but found 2 duplicate entries in :
+
+`MANIFEST.in`: 1.) file digest=993ef9cb52c13947733519a4c8eb3a2bf49a38cfdfa922a385f648d3dfa68402 size=179:
+
+include README.rst LICENSE VERSION 
+include pybind/cnufft/cnufft.c
+include pybind/cnufft/cnufft.h
+include pybind/cnufft/libcnufft.so
+include pybind/cnufft/libfnufft.so
+prune *.pyc
+
+`MANIFEST.in`: 2.) file digest=892591bf1e4c7e1337cfd470096a467805fa2cb6f46b792fe6e3a6a8b0a72e0a size=366:
+
+include README.rst
+include setup.py
+include nufft/__init__.py
+include nufft/nufft.py
+include nufft/nufft.pyf
+include src/nufft/dfftpack.f
+include src/nufft/dirft1d.f
+include src/nufft/dirft2d.f
+include src/nufft/dirft3d.f
+include src/nufft/next235.f
+include src/nufft/nufft1df90.f
+include src/nufft/nufft2df90.f
+include src/nufft/nufft3df90.f
+include pyproject.toml
+#+end_example
