@@ -1,5 +1,15 @@
 Building a docker image with the following repo results in file merge conflict
 
+* Debug with docker-compose
+#+begin_src shell
+docker-compose run --rm debug
+git clone https://github.com/dimitar-petrov/pants_merge_debug.git
+cd pants_merge_debug
+./pants package py/apps/pyapp/docker:docker_src
+#+end_src
+
+* Debug without docker-compose
+
 *Command*
 #+begin_src shell
 ./pants package py/apps/pyapp/docker:docker_src
@@ -42,3 +52,4 @@ include src/nufft/nufft2df90.f
 include src/nufft/nufft3df90.f
 include pyproject.toml
 #+end_example
+

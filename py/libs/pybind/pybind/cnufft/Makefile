@@ -1,7 +1,7 @@
 IF_VER_GE = $(shell test "$1" -ge "$2" && echo YES)
 VER = $(shell gfortran -dumpversion | cut -d"." -f1)
 
-ifeq "$(call IF_VER_GE, $(VER), 12)" "YES"
+ifeq "$(call IF_VER_GE, $(VER), 10)" "YES"
     FLAGS = -fallow-argument-mismatch
 else
     FLAGS =
